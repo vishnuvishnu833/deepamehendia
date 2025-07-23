@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>DEEPA MEHNDI ARTIST | Sagun Se Khushiya | LUCKNOW</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Georgia', 'Times New Roman', Times, serif;
+      background: #fdfdfd;
+      color: #333;
+      line-height: 1.5;
+      padding-top: 120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Splash Screen */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #fff8f0 0%, #f5e4c3 100%) url('logo.png') center/contain no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: clamp(24px, 8vw, 32px);
+      color: #4b2e2e;
+      z-index: 9999;
+      animation: fadeOut 1.5s ease 3s forwards;
+      overflow: hidden;
+    }
+
+    .preloader-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #preloader h1 {
+      font-family: 'Satisfy', cursive;
+      font-size: clamp(32px, 10vw, 48px);
+      color: #a0522d;
+      margin-bottom: 10px;
+      animation: fadeIn 1s ease forwards;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    #preloader .hindi-line {
+      font-family: 'Georgia', serif;
+      font-size: clamp(18px, 6vw, 24px);
+      color: #a52a2a;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease 0.5s forwards;
+      opacity: 0;
+    }
+
+    #preloader .blessing {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: clamp(14px, 4vw, 16px);
+      color: #4b2e2e;
+      margin-top: 30px;
+      animation: fadeIn 1s ease 1.5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+      z-index: 900;
+    }
+
+    .brand-area {
+      position: relative;
+    }
+
+    .brand-area h2 {
+      font-family: 'Satisfy', cursive;
+      margin: 5px 0 0;
+      font-size: clamp(24px, 6vw, 32px);
+      color: #4b2e2e;
+    }
+
+    .brand-area p {
+      margin: 2px 0;
+      font-style: italic;
+      color: #e67e22;
+      font-size: clamp(14px, 4vw, 16px);
+      animation: blink 2s infinite;
+    }
+
+    .location-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .location {
+      font-weight: bold;
+      color: #4b2e2e;
+      font-size: clamp(12px, 3.5vw, 14px);
+    }
+
+    .menu-toggle {
+      background: none;
+      border: none;
+      color: #4b2e2e;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 10px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 10px 0;
+      z-index: 1000;
+      display: none;
+      width: 180px;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 15px;
+      color: #4b2e2e;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f5e4c3;
+      color: #a52a2a;
+    }
+
+    nav { 
+      margin-top: 10px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 5px;
+    }
+
+    nav a {
+      margin: 5px 8px;
+      text-decoration: none;
+      color: #4b2e2e;
+      font-weight: bold;
+      font-size: clamp(13px, 3.8vw, 15px);
+      display: inline-block;
+    }
+
+    nav a:hover { color: #e67e22; }
+
+    /* Main Content */
+    .welcome-box {
+      width: 100%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    .welcome-box video {
+      width: 100%;
+      border-radius: 0;
+    }
+
+    .section {
+      width: 95%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px 0;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #4b2e2e;
+      margin-bottom: 20px;
+      font-size: clamp(20px, 6vw, 26px);
+      padding: 0 10px;
+    }
+
+    .section h2 i { 
+      margin-right: 8px; 
+      color: goldenrod;
+      font-size: clamp(18px, 5vw, 24px);
+    }
+
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 90px;
+      height: 2px;
+      background: linear-gradient(90deg, goldenrod, #f5e4c3, goldenrod);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    .section p {
+      padding: 0 15px;
+      text-align: center;
+      font-size: clamp(14px, 4vw, 16px);
+    }
+
+    /* Gallery Styles */
+    .gallery-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 0 auto 20px;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .gallery-preview img {
+      width: 100%;
+      border-radius: 0;
+    }
+
+    .gallery-button {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 25px;
+      background: goldenrod;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      width: 80%;
+      max-width: 300px;
+      transition: all 0.3s;
+      grid-column: 1 / -1;
+    }
+
+    .gallery-button:hover {
+      background: #d4af37;
+      transform: translateY(-2px);
+    }
+
+    .full-gallery {
+      display: none;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 0 10px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .full-gallery.show {
+      display: grid;
+    }
+
+    .full-gallery img {
+      width: 100%;
+      border-radius: 0;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .lightbox.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #ff0000;
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-weight: bold;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .lightbox-nav button {
+      background: rgba(255,255,255,0.3);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-nav button:hover {
+      background: rgba(255,255,255,0.5);
+    }
+
+    /* Table Styles */
+    .rate-table {
+      margin: 20px auto;
+      width: 95%;
+      max-width: 800px;
+      border-collapse: collapse;
+      font-size: clamp(12px, 3.5vw, 14px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .rate-table th, .rate-table td {
+      border: 1px solid #eee;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .rate-table th {
+      background: goldenrod;
+      color: #fff;
+    }
+
+    .rate-table tr:nth-child(even) {
+      background: #fffaf0;
+    }
+
+    /* FAQ Styles */
+    .faq-item {
+      margin-bottom: 12px;
+      background: #fff;
+      border-radius: 0;
+      padding: 15px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+    }
+
+    .faq-item:hover {
+      background: #fffaf0;
+    }
+
+    .faq-question {
+      font-size: clamp(14px, 4vw, 16px);
+      color: #4b2e2e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: clamp(13px, 3.8vw, 15px);
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-item .icon {
+      transition: transform 0.3s ease;
+      font-size: clamp(12px, 3.5vw, 14px);
+    }
+
+    .faq-item.open .icon {
+      transform: rotate(180deg);
+    }
+
+    /* Video Styles */
+    video {
+      width: 100%;
+      border-radius: 0;
+      display: block;
+      margin: 15px auto;
+    }
+
+    .video-container {
+      position: relative;
+      width: 95%;
+      margin: 20px auto;
+    }
+
+    .video-container video {
+      width: 100%;
+    }
+
+    /* Review Styles */
+    .review-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding: 15px;
+      scroll-snap-type: x mandatory;
+      margin: 0 auto;
+      max-width: 100%;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .review-scroll-container video {
+      flex: 0 0 auto;
+      width: 280px;
+      max-width: 85vw;
+      scroll-snap-align: start;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #4b2e2e;
+      font-size: clamp(12px, 3.5vw, 14px);
+      background: #fffaf0;
+    }
+
+    footer a {
+      color: #4b2e2e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Animations */
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0.8; }
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+      body {
+        padding-top: 100px;
+      }
+
+      header {
+        padding: 10px 40px;
+      }
+
+      .full-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gallery-preview {
+        max-width: 800px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .full-gallery {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="hindi-line">श्री हित हरिवंश</div>
+      <h1>DEEPA MEHNDI ARTIST</h1>
+      <div class="blessing">🌟 शुभ मंगल सौभाग्य 🌟</div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" style="display:none;">
+    <!-- Header -->
+    <header>
+      <div class="brand-area">
+        <h2>DEEPA MEHNDI ARTIST</h2>
+        <p>🌿 Sagun Se Khushiya 🌿</p>
+        <div class="location-row">
+          <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#design-gallery"><i class="fas fa-images"></i> Design Gallery</a>
+            <a href="#guest-gallery"><i class="fas fa-users"></i> Guest Gallery</a>
+            <a href="#colour-gallery"><i class="fas fa-palette"></i> Colours</a>
+            <a href="https://wa.me/918874896711"><i class="fas fa-phone"></i> Contact Us</a>
+          </div>
+          <div class="location">LUCKNOW</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#design-gallery">Gallery</a>
+        <a href="#guest-gallery">Guest Gallery</a>
+        <a href="#colour-gallery">Colours</a>
+        <a href="#packages">Packages</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <!-- Welcome Video -->
+    <div class="welcome-box" id="welcome">
+      <video autoplay muted loop playsinline>
+        <source src="index/w.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Certified Artist Section -->
+    <section class="section">
+      <h2><i class="fas fa-award"></i>Certified Artist</h2>
+      <p>Certified with WedMeGood. Our team is hardworking and talented to make your events memorable.</p>
+    </section>
+    
+    <!-- Timelapse Video -->
+    <div class="video-container">
+      <video src="timelaps/T.mp4" poster="timelaps/t.jpeg" controls playsinline></video>
+    </div>
+
+    <!-- Signature Mehendi Section -->
+    <section class="section">
+      <h2><i class="fas fa-feather-alt"></i>Signature Mehendi</h2>
+      <p>
+        We create Traditional, Royal, and Arabic Mehendi designs filled with beauty and emotion – perfect for your special day.
+      </p>
+    </section>
+
+    <!-- Design Gallery -->
+    <section class="section" id="design-gallery">
+      <h2><i class="fas fa-images"></i>Design Gallery</h2>
+      <div class="gallery-preview" id="design-preview">
+        <img src="images/H2.jpeg" alt="Design Preview 1">
+        <img src="images/H3.jpeg" alt="Design Preview 2">
+        <img src="images/H4.jpeg" alt="Design Preview 3">
+        <img src="images/H5.jpeg" alt="Design Preview 4">
+        <button onclick="openAllDesigns()" class="gallery-button">See More Designs</button>
+      </div>
+      <div id="full-design-gallery" class="full-gallery"></div>
+    </section>
+
+    <!-- Guest Gallery -->
+    <section class="section" id="guest-gallery">
+      <h2><i class="fas fa-users"></i>Guest Gallery</h2>
+      <div class="gallery-preview" id="guest-preview">
+        <img src="guest/G1.jpeg" alt="Guest Preview 1">
+        <img src="guest/G2.jpeg" alt="Guest Preview 2">
+        <img src="guest/G3.jpeg" alt="Guest Preview 3">
+        <img src="guest/G4.jpeg" alt="Guest Preview 4">
+        <button onclick="openAllGuests()" class="gallery-button">See More Guest Designs</button>
+      </div>
+      <div id="full-guest-gallery" class="full-gallery"></div>
+    </section>
+
+    <!-- Colour Gallery -->
+    <section class="section" id="colour-gallery">
+      <h2><i class="fas fa-palette"></i>Our New Mehendi Colours</h2>
+      <div class="gallery-preview" id="colour-preview">
+        <img src="colour/C1.jpeg" alt="Colour Preview 1">
+        <img src="colour/C2.jpeg" alt="Colour Preview 2">
+        <img src="colour/C3.jpeg" alt="Colour Preview 3">
+        <img src="colour/C4.jpeg" alt="Colour Preview 4">
+        <button onclick="openAllColours()" class="gallery-button">See More Colours</button>
+      </div>
+      <div id="full-colour-gallery" class="full-gallery"></div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="section" id="packages">
+      <h2><i class="fas fa-list"></i>Offerings & Packages</h2>
+      <table class="rate-table">
+        <tr><th>Offerings</th><th>Rates</th></tr>
+        <tr><td>Bridal Mehendi</td><td>₹5100 onwards</td></tr>
+        <tr><td>Guest Mehendi – Traditional</td><td>₹500 per person</td></tr>
+        <tr><td>Guest Mehendi – Arabic</td><td>₹300 per person</td></tr>
+        <tr><th colspan="2">Packages</th></tr>
+        <tr><td>1 Bride + 10 Guests</td><td>₹11,000</td></tr>
+        <tr><td>1 Bride + 20 Guests</td><td>₹15,000</td></tr>
+        <tr><td>1 Bride + 50 Guests</td><td>₹25,000</td></tr>
+      </table>
+      <p style="text-align:center; font-weight:bold; font-size:clamp(14px, 4vw, 16px); animation:blink 2s infinite; padding: 0 15px;">
+        Custom packages available, please contact us.
+      </p>
+    </section>
+
+    <!-- Mehendi Emotion Video -->
+    <div class="video-container">
+      <video width="100%" autoplay muted loop playsinline>
+        <source src="NV.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p style="text-align:center; font-size:clamp(16px, 4.5vw, 18px); font-style:italic; font-weight:bold; color:#4b2e2e; margin-top:-10px; padding: 0 15px;">
+      Mehendi is not just an art, it's an emotion.
+    </p>
+
+    <!-- FAQ Section -->
+    <div class="section" id="faq">
+      <h2><i class="fas fa-question-circle"></i>FAQ</h2>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          Is advance refundable? <i class="fas fa-chevron-down icon"></i>
+        </div>
+        <div class="faq-answer">No, advance is not refundable.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          When should I book? <i class="fas fa-chevron-down icon"></i>
+        </div>
+        <div class="faq-answer">Please book at least 2 weeks in advance.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          What about bookings outside Lucknow? <i class="fas fa-chevron-down icon"></i>
+        </div>
+        <div class="faq-answer">Travel charges apply for bookings outside Lucknow.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">
+          Are colours natural? <i class="fas fa-chevron-down icon"></i>
+        </div>
+        <div class="faq-answer">Yes, we use natural mehendi colours.</div>
+      </div>
+    </div>
+
+    <!-- Thanks Section -->
+    <section class="section">
+      <h2><i class="fas fa-heart"></i>Special Thanks</h2>
+      <p>Thank you for trusting us to make your celebrations beautiful.</p>
+    </section>
+
+    <!-- Reviews -->
+    <div class="section">
+      <div class="review-scroll-container">
+        <video src="thanks/1.mp4" poster="thanks/1p.jpeg" controls playsinline></video>
+        <video src="thanks/2.mp4" poster="thanks/2p.jpeg" controls playsinline></video>
+        <video src="thanks/3.mp4" poster="thanks/3p.jpeg" controls playsinline></video>
+      </div>
+    </div>
+
+    <!-- Artist Section -->
+    <section class="section">
+      <h2><i class="fas fa-user"></i>Know Your Artist</h2>
+      <p>Deepa, a passionate mehendi artist with over 12 years of experience in bridal and festive mehendi, believes in creating lasting memories with every intricate stroke, blending tradition with creativity and joy.</p>
+    </section>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/918874896711?text=Hi%20Deepa%20Ji%2C%20I%20would%20like%20to%20book%20a%20mehendi%20appointment.%20Please%20share%20details." 
+      class="whatsapp-float" 
+      target="_blank" 
+      title="Book on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+      <div style="margin-bottom: 5px;">
+        <strong>Contact Us:</strong> <a href="https://wa.me/918874896711">+91 88748 96711</a>
+      </div>
+      &copy; 2025 DEEPA MEHENDI ARTIST. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img src="" alt="" class="lightbox-img" id="lightbox-img">
+      <div class="lightbox-nav">
+        <button onclick="navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle FAQ function
+    function toggleFAQ(el) {
+      el.classList.toggle('open');
+    }
+
+    // Toggle dropdown menu
+    function toggleMenu() {
+      document.getElementById('dropdownMenu').classList.toggle('show');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.matches('.menu-toggle') && !event.target.closest('.dropdown-menu')) {
+        const dropdowns = document.getElementsByClassName('dropdown-menu');
+        for (let i = 0; i < dropdowns.length; i++) {
+          const openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    });
+
+    // Lightbox functionality
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function openLightbox(images, index) {
+      currentImages = images;
+      currentIndex = index;
+      document.getElementById('lightbox-img').src = currentImages[currentIndex];
+      document.getElementById('lightbox').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = currentImages.length - 1;
+      if (currentIndex >= currentImages.length) currentIndex = 0;
+      document.getElementById('lightbox-img').src = currentImages[currentIndex];
+    }
+
+    // Close lightbox when clicking outside image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', function(e) {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox.classList.contains('show')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          navigateLightbox(-1);
+        } else if (e.key === 'ArrowRight') {
+          navigateLightbox(1);
+        }
+      }
+    });
+
+    // Gallery functions
+    function openAllDesigns() {
+      const gallery = document.getElementById("full-design-gallery");
+      const preview = document.getElementById("design-preview");
+      
+      if (gallery.classList.contains('show')) {
+        gallery.classList.remove('show');
+        preview.style.display = 'grid';
+        return;
+      }
+      
+      gallery.innerHTML = "";
+      const images = [];
+      for (let i = 2; i <= 17; i++) images.push(`images/H${i}.jpeg`);
+      for (let i = 1; i <= 13; i++) images.push(`images/L${i}.jpeg`);
+      
+      images.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Design";
+        img.onclick = () => openLightbox(images, index);
+        gallery.appendChild(img);
+      });
+      
+      preview.style.display = "none";
+      gallery.classList.add('show');
+      gallery.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openAllGuests() {
+      const gallery = document.getElementById("full-guest-gallery");
+      const preview = document.getElementById("guest-preview");
+      
+      if (gallery.classList.contains('show')) {
+        gallery.classList.remove('show');
+        preview.style.display = 'grid';
+        return;
+      }
+      
+      gallery.innerHTML = "";
+      const images = [];
+      for (let i = 1; i <= 13; i++) images.push(`guest/G${i}.jpeg`);
+      for (let i = 1; i <= 8; i++) images.push(`guest/S${i}.jpeg`);
+      
+      images.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Guest";
+        img.onclick = () => openLightbox(images, index);
+        gallery.appendChild(img);
+      });
+      
+      preview.style.display = "none";
+      gallery.classList.add('show');
+      gallery.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openAllColours() {
+      const gallery = document.getElementById("full-colour-gallery");
+      const preview = document.getElementById("colour-preview");
+      
+      if (gallery.classList.contains('show')) {
+        gallery.classList.remove('show');
+        preview.style.display = 'grid';
+        return;
+      }
+      
+      gallery.innerHTML = "";
+      const images = [];
+      for (let i = 1; i <= 14; i++) images.push(`colour/C${i}.jpeg`);
+      
+      images.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Colour";
+        img.onclick = () => openLightbox(images, index);
+        gallery.appendChild(img);
+      });
+      
+      preview.style.display = "none";
+      gallery.classList.add('show');
+      gallery.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Preloader function
+    window.addEventListener("load", function() {
+      setTimeout(() => {
+        document.getElementById("preloader").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }, 3000);
+    });
+
+    // Video autoplay and unmute functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Autoplay NV.mp4 and w.mp4 with sound
+      const autoPlayVideos = document.querySelectorAll('#welcome video, .video-container video[src="NV.mp4"]');
+      
+      autoPlayVideos.forEach(video => {
+        video.muted = false;
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            // If autoplay with sound fails, mute and try again
+            video.muted = true;
+            video.play();
+          });
+        }
+      });
+      
+      // Handle other videos (with controls)
+      const otherVideos = document.querySelectorAll('video:not(#welcome video):not([src="NV.mp4"])');
+      
+      otherVideos.forEach(video => {
+        // Unmute when played
+        video.addEventListener('play', function() {
+          this.muted = false;
+        });
+        
+        // Pause when scrolled out of view
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && !video.paused) {
+              video.pause();
+            }
+          });
+        }, {threshold: 0.5});
+        
+        observer.observe(video);
+      });
+    });
+  </script>
+</body>
+</html>
